@@ -1,0 +1,282 @@
+﻿@model Domain.Suggestion
+@{
+    ViewData["Title"] = "Welcome to the Jungle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Restaurantly Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <!-- Favicons -->
+    <link href=@Url.Content("/Content/assets/img/favicon.png") rel="icon">
+    <link href=@Url.Content("/Content/assets/img/apple-touch-icon.png") rel="apple-touch-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href=@Url.Content("/Content/assets/vendor/animate.css/animate.min.css") rel="stylesheet">
+    <link href=@Url.Content("/Content/assets/vendor/aos/aos.css") rel="stylesheet">
+    <link href=@Url.Content("/Content/assets/vendor/bootstrap/css/bootstrap.min.css") rel="stylesheet">
+    <link href=@Url.Content("/Content/assets/vendor/bootstrap-icons/bootstrap-icons.css") rel="stylesheet">
+    <link href=@Url.Content("/Content/assets/vendor/boxicons/css/boxicons.min.css") rel="stylesheet">
+    <link href=@Url.Content("/Content/assets/vendor/glightbox/css/glightbox.min.css") rel="stylesheet">
+    <link href=@Url.Content("/Content/assets/vendor/swiper/swiper-bundle.min.css") rel="stylesheet">
+
+
+    <!-- Template Main CSS File -->
+
+    <link href="~/Content/assets/css/style.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <main id="main">
+
+        <header id="header" class="fixed-top d-flex align-items-cente">
+            <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+
+                <h1 class="logo me-auto me-lg-0"><a asp-controller="Home" asp-action="Index">Jorge Restaurant</a></h1>
+
+           
+
+                <nav id="navbar" class="navbar order-last order-lg-0">
+                    <ul>
+                        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                        <li><a class="nav-link scrollto" href="#about">About</a></li>
+                        <li><a class="nav-link scrollto" asp-controller="Restaurant" asp-action="Index">Restaurants</a></li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li><a class="nav-link scrollto" asp-controller="UserInfo" asp-action="Index">Users</a></li>
+                        }
+
+                        <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li><a class="nav-link scrollto" asp-controller="Home" asp-action="Security">Login</a></li>
+                        }
+
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li><a class="nav-link scrollto" asp-controller="Restaurant" asp-action="Register">Register</a></li>
+                        }
+
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li><a class="nav-link scrollto" asp-controller="Home" asp-action="Logout">Logout</a></li>
+                            }
+                       
+
+                        </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav><!-- .navbar -->
+            </div>
+        </header><!-- End Header -->
+        @*<HERO SECTION>*@
+
+        <section id="hero" class="d-flex align-items-center">
+
+            <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h1>Welcome to <span>Jorge's Favorite App</span></h1>
+                        <h2>Working hard but sometimes hardly working!</h2>
+
+                        <div class="btns">
+                            <a href="#footer" class="btn-menu animated fadeInUp scrollto">Follow my Social Media Pages!</a>
+
+                            <a class="btn-book animated fadeInUp scrollto" href="#contact">Tell us what you think about this app </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex align-items-center justify-content-center position-relative" data-aos="zoom-in" data-aos-delay="200">
+                        <a href="https://www.youtube.com/watch?v=O91DT1pR1ew&ab_channel=CB2C" class="glightbox play-btn"></a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg-2 order-1 order-lg-1" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="about-img">
+                            <img src="/Content/assets/img/JorgeSuit.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-10 pt-4 pt-lg-0 order-2 order-lg-2 content">
+                        <h3>Web Developer. Software Engineer. Professional Swimmer and a Great Human Being</h3>
+                        <p class="fst-italic">
+                            Zyzz: "We are all going to make it!".
+                        </p>
+                        <p>
+                            I hope you enjoy this application. More functionalities will be coming soon!. Stay tuned and follow on my social media pages.
+                            Thanks!.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End About Section -->
+       
+        <!-- ======= Gallery Section ======= -->
+        <section id="gallery" class="gallery">
+
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Gallery</h2>
+                    <p>Some photos from Our Restaurant</p>
+                </div>
+            </div>
+
+            <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row g-0">
+
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="/Content/assets/img/gallery/gallery-3.jpg" class="gallery-lightbox" data-gall="gallery-item">
+                                <img src="/Content/assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-4">
+                        <div class="gallery-item">
+
+
+                            <a href="~/Content/assets/img/rey.jpg" class="gallery-lightbox" data-gall="gallery-item">
+                                <img src="~/Content/assets/img/rey.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="/Content/assets/img/gallery/gallery-5.jpg" class="gallery-lightbox" data-gall="gallery-item">
+                                <img src="/Content/assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="~/Content/assets/img/Heineken.jpg" class="gallery-lightbox" data-gall="gallery-item">
+                                <img src="~/Content/assets/img/Heineken.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+            </div>
+        </section><!-- End Gallery Section -->
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Contact</h2>
+                    <p>Contact Us</p>
+                </div>
+            </div>
+
+            <div data-aos="fade-up">
+                <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1122.818002009495!2d-73.85495368205811!3d40.8216885219209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f4da695cb131%3A0x77409a128797bd37!2s2000%20Lafayette%20Ave%2C%20Bronx%2C%20NY%2010473!5e0!3m2!1sen!2sus!4v1630519847898!5m2!1sen!2sus" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+
+
+
+            <div class="container" data-aos="fade-up">
+
+                <div class="row mt-5">
+
+                    <div class="col-lg-4">
+                        <div class="info">
+                            <div class="address">
+                                <i class="bi bi-geo-alt"></i>
+                                <h4>Location:</h4>
+                                <p>742 Lafayette Ave. Bronx, NY 10473</p>
+                            </div>
+
+                            <div class="open-hours">
+                                <i class="bi bi-clock"></i>
+                                <h4>Only Working Hours:</h4>
+                                <p>
+                                    Monday-Friday:<br>
+                                    08:00 AM - 06:00 PM
+                                </p>
+                            </div>
+
+                            <div class="email">
+                                <i class="bi bi-envelope"></i>
+                                <h4>Email:</h4>
+                                <p>jorgeyumiseba@gmail.com</p>
+                            </div>
+
+                            <div class="phone">
+                                <i class="bi bi-phone"></i>
+                                <h4>Call:</h4>
+                                <p>+1 347 705 4868</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-8 mt-5 mt-lg-0">
+
+
+                    <form asp-controller="Home" asp-action="SuggestionCreate">
+
+                        <div method="post" role="form" class="php-email-form">
+                            <div class="row">
+                                <H3>Suggestions!</H3>
+                                <div class="col-md-6 form-group">
+                                    
+                                    <label asp-for="Name" class="control-label"></label>
+                                    <input asp-for="Name" type="text" class="form-control" id="name" placeholder="Your Name" required>
+
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label asp-for="Email" class="control-label"></label>
+                                    <input asp-for="Email" type="email" class="form-control" id="email" placeholder="Your Email" required>
+
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                               
+                                <p>Comment</p>
+                                <input asp-for="Message" class="form-control" rows="8" placeholder="Comment" required>
+
+                            </div>
+                            <div class="my-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class="text-center"><button type="submit">Send Message</button></div>
+                        </div>
+
+
+               
+                </form>
+
+            </div>
+
+
+            </div>
+        </section><!-- End Contact Section -->
+
+    </main><!-- End #main -->
+</body>
